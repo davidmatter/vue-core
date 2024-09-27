@@ -230,6 +230,28 @@ describe('defineProps w/union type', () => {
   }
 })
 
+describe('defineProps w/distributive union type', () => {
+  type PP =
+    | {
+        type1: 'text'
+        mm1: string
+      }
+    | {
+        type2: 'number'
+        mm2: number | null
+      }
+
+  const res = defineProps<PP>()
+
+  if ('type1' in res) {
+    expectType<string>(res.mm1)
+  }
+
+  if ('type2' in res) {
+    expectType<number | null>(res.mm2)
+  }
+})
+
 describe('withDefaults w/ union type', () => {
   type PP =
     | {
