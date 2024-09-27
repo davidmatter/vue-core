@@ -196,12 +196,12 @@ describe('component props', () => {
       c: {
         type: Boolean,
         required: true,
-        union: ['c'],
+        union: ['d'],
       },
       d: {
         type: String,
         required: false,
-        union: ['d'],
+        union: ['c'],
       },
     }
 
